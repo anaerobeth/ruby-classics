@@ -22,10 +22,21 @@
   </head>
 
   <body>
+    <nav>
+      <% if user_signed_in? %>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+        <%= link_to 'Sign In', new_user_session_path %>
+      <% end %>
+    </nav>
+
+    <%= content_tag :div, flash[:notice], class: 'notice' %>
+    <%= content_tag :div, flash[:alert], class: 'alert' %>
 
     <%= yield %>
 
-    
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>
