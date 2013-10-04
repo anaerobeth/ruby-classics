@@ -40,22 +40,22 @@ scenario 'with valid information' do
 
   end
 
-  # scenario 'with invalid information' do
-  #   prev_count = User.count
+  scenario 'with invalid information' do
+    prev_count = User.count
 
-  #   visit root_path
-  #   click_link 'Sign Up'
+    visit root_path
+    click_link 'Sign Up'
 
-  #   click_button 'Sign Up'
+    click_button 'Sign Up'
 
-  #   expect( User.count ).to eql( prev_count )
+    expect( User.count ).to eql( prev_count )
 
-  #   page.should_not have_content('Welcome!')
-  #   page.should_not have_content('Sign Out')
+    page.should_not have_content('Welcome!')
+    page.should_not have_content('Sign Out')
 
-  #   page.should have_content('Sign Up')
-  #   page.should have_content('Sign In')
-  #   page.should have_content("can't be blank")
+    page.should have_content('Sign Up')
+    page.should have_content('Sign In')
+    page.should have_content("can't be blank")
 
-  #  end
+   end
 end
