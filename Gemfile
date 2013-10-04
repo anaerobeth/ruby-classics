@@ -48,7 +48,6 @@ end
 group :test, :development do
   gem 'capybara'
   gem 'factory_girl'
-  #gem 'factory_girl_rails'
   gem 'launchy'
   gem 'quiet_assets'
   gem 'rspec-rails'
@@ -56,4 +55,12 @@ group :test, :development do
   gem 'valid_attribute'
 end
 
+# Add foundation
+gem 'zurb-foundation'
+
+# USe simple form
+gem 'simple_form'
+
+#Use devise
+gem 'devise'
 
