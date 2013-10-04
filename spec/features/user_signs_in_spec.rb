@@ -8,40 +8,59 @@ feature 'user signs in',%Q{
 
 # ACCEPTANCE CRITERIA
 #
-# I must specify user name and password
-# If I don't specify the required information I am shown an error and promted to re-enter the infermation
+# I must specify email and password
+# If I don't specify the required information I am shown an error
+# and prompted to re-enter the information
 # If I am successful, I am greeted with a message, logged in, and brought to the home page
 
-  scenario 'with valid information' do
+  scenario 'registered user signs in with valid information' do
+    user = FactoryGirl.create(:user)
     visit root_path
     click_link 'Sign In'
 
-    fill_in 'User Name', with: 'Rubyist'
-    fill_in 'user_password', with: 'ellapw'
+    page.should have_content('Please enter your credentials')
+
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
 
     click_button 'Sign In'
 
-    page.should have_content('Welcome!')
+    page.should have_content('Signed in successfully.')
     page.should have_content('Sign Out')
 
     page.should_not have_content('Sign In')
+    page.should_not have_content('Sign Up')
 
   end
 
-  scenario 'with invalid information' do
-    visit root_path
-    click_link 'Sign In'
+  scenario 'unregistered user tries to sign in' do
+    visit new_user_session_path
 
-    click_button 'Sign Up'
+    fill_in 'user_email', with: 'notregistered@gmail.com'
+    fill_in 'user_password', with: 'notregpassword'
 
-    expect( User.count ).to eql( prev_count )
+    click_button 'Sign In'
 
     page.should_not have_content('Welcome!')
+    page.should have_content('Sign In')
     page.should_not have_content('Sign Out')
 
-    page.should have_content('Sign Up')
-    page.should have_content('Sign In')
-    page.should have_content("can't be blank")
+  end
 
-   end
+  scenario 'registered user enters wrong password' do
+    user = FactoryGirl.create(:user)
+    user.password = 'wrongpassword'
+
+    visit new_user_session_path
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
+
+    click_button 'Sign In'
+
+    page.should have_content('Invalid email or password')
+    page.should have_content('Sign In')
+
+    page.should_not have_content('Sign Out')
+  end
+
 end
