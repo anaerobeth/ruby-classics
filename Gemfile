@@ -58,9 +58,9 @@ end
 # Add foundation
 gem 'zurb-foundation'
 
-# USe simple form
+# Use simple form
 gem 'simple_form'
 
-#Use devise
+# Use devise
 gem 'devise'
 
