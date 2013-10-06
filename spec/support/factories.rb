@@ -8,4 +8,13 @@ FactoryGirl.define do
     password 'davepassword'
   end
 
+  factory :posting do
+    user
+    title 'Learn to Program'
+    url 'http://www.pragprog.com'
+    category 'Book'
+    description 'An awesome programming book'
+  end
+
+
 end

@@ -34,7 +34,8 @@ feature 'user signs in',%Q{
   end
 
   scenario 'unregistered user tries to sign in' do
-    visit new_user_session_path
+    visit root_path
+    click_link 'Sign In'
 
     fill_in 'user_email', with: 'notregistered@gmail.com'
     fill_in 'user_password', with: 'notregpassword'
@@ -51,7 +52,9 @@ feature 'user signs in',%Q{
     user = FactoryGirl.create(:user)
     user.password = 'wrongpassword'
 
-    visit new_user_session_path
+    visit root_path
+    click_link 'Sign In'
+
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password
 
