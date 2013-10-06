@@ -21,6 +21,7 @@ feature 'creates a posting', %Q{
 
     posting = FactoryGirl.create(:posting)
     visit new_posting_path
+    save_and_open_page
     fill_in "Title", with: posting.title
     fill_in "Website", with: posting.url
     select "Category", with: posting.category

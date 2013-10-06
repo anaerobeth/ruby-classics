@@ -1,0 +1,8 @@
+<%= simple_form_for(@posting) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :url, label: 'Website'%>
+  <%= f.input :description %>
+  <%= f.submit 'Create a post' %>
+<% end %>
+
+<%= link_to 'Home', root_path %>
