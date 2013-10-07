@@ -65,3 +65,6 @@ gem 'simple_form'
 # Use devise
 gem 'devise'
 
+# Use kaminari
+gem 'kaminari'
+

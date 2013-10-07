@@ -66,9 +66,9 @@ feature 'user creates a posting', %Q{
 
     click_on 'Cancel'
     expect(Posting.count).to eql(prev_posting_count)
-    expect(page).to have_content('Your post has been added to Ruby Classics')
+    expect(page).to_not have_content('Your post has been added to Ruby Classics')
 
-    expect(page).to have_content(posting.name)
+    expect(page).to have_content("Do you know an awesome online resource")
   end
 
 

@@ -12,4 +12,8 @@ class Posting < ActiveRecord::Base
 
   belongs_to :user,
     inverse_of: :postings
+
+  has_many :reviews,
+    inverse_of: :posting
+
 end

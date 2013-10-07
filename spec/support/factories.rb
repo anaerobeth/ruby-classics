@@ -10,8 +10,8 @@ FactoryGirl.define do
 
   factory :posting do
     user
-    title 'Learn to Program'
-    url 'http://www.pragprog.com'
+    sequence(:title) {|n| "Learn to Program#{n}"}
+    sequence(:url) {|n| "http://www.pragprog#{n}.com"}
     category 'Book'
     description 'An awesome programming book'
   end

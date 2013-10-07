@@ -24,9 +24,9 @@ feature 'user reviews a posting', %Q{
     fill_in 'Password', with: user.password
     click_button 'Sign In'
 
-    click_on posting.name
-    click_on "Review this item"
-
+    visit postings_path
+    save_and_open_page
+    click_on 'Review this'
     fill_in "What I think about this #{posting.category}", with: 'Very useful!'
 
     click_on 'Create Review'

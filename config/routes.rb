@@ -1,7 +1,8 @@
 Irdb3::Application.routes.draw do
-  resources :reviews
 
-  resources :postings
+  resources :postings do
+    resources :reviews
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

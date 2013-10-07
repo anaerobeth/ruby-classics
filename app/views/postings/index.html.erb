@@ -1,9 +1,15 @@
 <h2>The best online resources for Ruby developers</h2>
 <div>
-  <%= @postings.each do |posting| %>
-    <%= posting.category %>
-    <%= posting.title %>
-    <%= posting.url %>
-    <%= posting.description %>
+  <ul>
+  <% @postings.each do |posting| %>
+    <li><%= posting.category %></li>
+    <li><%= posting.title %></li>
+    <li><%= posting.url %></li>
+    <li><%= posting.description %></li>
+    <li><%= link_to 'Review this', posting_reviews_path(posting) %></li>
+    <hr />
   <%- end -%>
+  <ul>
 </div>
+
+<%= link_to 'Share a new Ruby Classic', new_posting_path %>
