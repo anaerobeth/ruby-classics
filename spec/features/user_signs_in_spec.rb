@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 feature 'user signs in',%Q{
-  As a Ruby developer
+  As a Rubyist
   I want sign in to my account
-  So that I can comment and rate a resource item
+  So that I can comment and rate a posting
 } do
 
 # ACCEPTANCE CRITERIA

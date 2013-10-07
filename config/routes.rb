@@ -1,4 +1,6 @@
 Irdb3::Application.routes.draw do
+  resources :reviews
+
   resources :postings
 
   devise_for :users

@@ -19,6 +19,10 @@ class PostingsController < ApplicationController
     end
   end
 
+  def show
+    @posting = Posting.find(params[:id])
+  end
+
   def posting_params
     params.require(:posting).permit(
       :title, :url, :description, :category)

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'user signs out',%Q{
-  As an authenticated Ruby developer
+  As an authenticated Rubyist
   I want sign out
   So that I can browse the website anonymously
 } do
