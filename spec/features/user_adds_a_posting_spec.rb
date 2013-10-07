@@ -11,7 +11,7 @@ feature 'creates a posting', %Q{
   # If I don't, I get an error notification and I am prompted to re-enter the required information
 
   scenario "creates a posting using valid information" do
-    prev_posting_count = Posting.count
+
     user = FactoryGirl.create(:user)
 
     visit new_user_session_path
@@ -20,16 +20,17 @@ feature 'creates a posting', %Q{
     click_button 'Sign In'
 
     posting = FactoryGirl.create(:posting)
+    prev_posting_count = Posting.count
     visit new_posting_path
-    save_and_open_page
+
     fill_in "Title", with: posting.title
     fill_in "Website", with: posting.url
-    select "Category", with: posting.category
     fill_in "Description", with: posting.description
+    fill_in "Category", with: posting.category
 
     click_button 'Create a post'
     expect(Posting.count).to eql(prev_posting_count + 1)
-    expect(page).to have_content('You have successfully added a book')
+    expect(page).to have_content('Your post has been added to Ruby Classics.')
   end
 
 end

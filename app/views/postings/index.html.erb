@@ -1,0 +1,9 @@
+<h2>The best online resources for Ruby developers</h2>
+<div>
+  <%= @postings.each do |posting| %>
+    <%= posting.category %>
+    <%= posting.title %>
+    <%= posting.url %>
+    <%= posting.description %>
+  <%- end -%>
+</div>
