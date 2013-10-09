@@ -23,6 +23,15 @@ class PostingsController < ApplicationController
     @posting = Posting.find(params[:id])
   end
 
+  def vote
+    vote = current_user.posting_votes.new(value: params[:value], posting_id: params[:id])
+    if vote.save
+      redirect_to :back, notice: "Thank you for voting."
+    else
+      redirect_to :back, alert: "Unable to vote, perhaps you already did."
+    end
+  end
+  protected
   def posting_params
     params.require(:posting).permit(
       :title, :url, :description, :category)

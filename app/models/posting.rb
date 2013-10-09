@@ -16,4 +16,7 @@ class Posting < ActiveRecord::Base
   has_many :reviews,
     inverse_of: :posting
 
+  has_many :posting_votes,
+    inverse_of: :posting
+
 end

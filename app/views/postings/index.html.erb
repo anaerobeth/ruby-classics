@@ -3,9 +3,9 @@
   <ul>
   <% @postings.each do |posting| %>
     <li><%= posting.category %></li>
-    <li><%= posting.title %></li>
-    <li><%= posting.url %></li>
+    <li><%=  link_to posting.title, posting.url %></li>
     <li><%= posting.description %></li>
+    <li><%= User.where(id: posting.user_id).first.full_name %></li>
     <li><%= link_to 'Review this', posting_reviews_path(posting) %></li>
     <hr />
   <%- end -%>

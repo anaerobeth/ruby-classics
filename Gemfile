@@ -67,4 +67,3 @@ gem 'devise'
 
 # Use kaminari
 gem 'kaminari'
-

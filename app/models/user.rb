@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
     through: :postings,
     inverse_of: :user
 
+  has_many :posting_votes,
+    inverse_of: :user
+
   def full_name
     "#{first_name} #{last_name}"
   end

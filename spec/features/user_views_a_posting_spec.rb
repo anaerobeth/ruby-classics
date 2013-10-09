@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-feature 'user views trucks' do
+feature 'user views postings' do
 
-  scenario 'all of the trucks are listed' do
+  scenario 'all of the postings are listed' do
 
     FactoryGirl.create_list(:user_with_postings, 5)
 

@@ -1,5 +1,5 @@
 <% if @posting %>
-  <h1><%= "Reviews for #{@posting.name}" %></h1>
+  <h1><%= "Reviews for #{@posting.title}" %></h1>
   <table>
     <tr>
       <th>User name</th>
@@ -16,9 +16,4 @@
   <p>Be the first to review this </p>
 <% end %>
 
-  <%= simple_form_for([:posting, :review]) do |f| %>
-    <%= f.input :body, "What I think about this #{posting.category}" %>
-    <%= f.button :submit %>
-  <%- end -%>
-
-<%= link_to 'Cancel', redirect_to: posting_reviews_path(posting) %>
+<%= link_to "Review this #{@posting.category}", new_posting_review_path %>

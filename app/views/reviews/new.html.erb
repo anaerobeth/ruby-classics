@@ -1,6 +1,1 @@
-<%= simple_form_for([:posting, :review]) do |f| %>
-  <%= f.input :body, "What I think about this #{posting.category}" %>
-  <%= f.button :submit %>
-  <%- end -%>
-
-<%= link_to 'Cancel', redirect_to: posting_reviews_path(posting) %>
+ <%= render "reviews/form" %>

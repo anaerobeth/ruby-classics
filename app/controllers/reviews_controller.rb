@@ -1,13 +1,16 @@
 class ReviewsController < ApplicationController
   def new
     @review = Review.new
-    @posting = Posting.find(params[:id])
   end
 
   def index
     @reviews = Review.all
+     @posting = Posting.find(1)
   end
 
-
+  protected
+  def review_params
+    params.require(:review).permit(:body, :posting_id)
+  end
 end
 
