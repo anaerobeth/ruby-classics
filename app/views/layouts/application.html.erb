@@ -22,21 +22,36 @@
   </head>
 
   <body>
-    <nav>
-      <% if user_signed_in? %>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Sign Up', new_user_registration_path %>
-        <%= link_to 'Sign In', new_user_session_path %>
-      <% end %>
-    </nav>
-
-    <%= content_tag :div, flash[:notice], class: 'notice' %>
-    <%= content_tag :div, flash[:alert], class: 'alert' %>
-
-    <%= yield %>
-
-
+    <div class="row">
+      <div class="large12">
+        <%= image_tag('logo.jpg') %>
+        <hr />
+        <nav>
+          <div class="right">
+            <% if user_signed_in? %>
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+            <% else %>
+              <p><%= link_to 'Sign Up', new_user_registration_path %>
+              <%= link_to 'Sign In', new_user_session_path %></p>
+            <% end %>
+          </div>
+        </nav>
+      </div>
+      <div class="row">
+        <div class="large12">
+          <%= content_tag :div, flash[:notice], class: 'notice' %>
+          <%= content_tag :div, flash[:alert], class: 'alert' %>
+          <%= yield %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large12">
+          <hr />
+          <footer class="left">
+            Copyright 2013 * Creative Commons License With Attribution
+          </footer>
+        </div>
+      </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

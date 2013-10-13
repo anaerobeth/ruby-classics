@@ -23,7 +23,7 @@ feature 'user votes on a posting', %Q{
     fill_in 'Password', with: user.password
     click_button 'Sign In'
 
-    visit postings_path(posting)
+    visit postings_path
     click_link 'Up'
     click_button "Create Vote"
 

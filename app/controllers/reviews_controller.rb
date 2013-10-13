@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
-     @posting = Posting.find(1)
+    @posting = Posting.find(1)
   end
 
   protected
