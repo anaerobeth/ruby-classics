@@ -14,7 +14,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "Ruby Classics" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -25,7 +25,6 @@
     <div class="row">
       <div class="large12">
         <%= image_tag('logo.jpg') %>
-        <hr />
         <nav>
           <div class="right">
             <% if user_signed_in? %>
@@ -40,16 +39,14 @@
         </nav>
       </div>
       <div class="row">
-        <div class="large12">
+        <div class="small-6 large-centered columns">
           <%= content_tag :div, flash[:notice], class: 'notice' %>
           <%= content_tag :div, flash[:alert], class: 'alert' %>
-          <%= yield %>
         </div>
-      </div>
+          <%= yield %>
       <div class="row">
         <div class="large12">
-          <hr />
-          <footer class="left">
+          <footer class="right">
             Copyright 2013 * Creative Commons License With Attribution
           </footer>
         </div>

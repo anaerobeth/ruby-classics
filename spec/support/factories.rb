@@ -3,7 +3,7 @@ FactoryGirl.define do
   factory :user do
     first_name 'Dave'
     last_name  'Thomas'
-    sequence(:user_name) {|n| "Rubyist#{n}" }
+    sequence(:user_name) {|n| "#{n}Rubyist" }
     sequence(:email) {|n| "user#{n}@example.com" }
     password 'davepassword'
 
@@ -26,7 +26,7 @@ FactoryGirl.define do
 
   factory :posting do
     user
-    sequence(:title) {|n| "Learn to Program#{n}"}
+    sequence(:title) {|n| "#{n}Learn to Program"}
     sequence(:url) {|n| "http://www.pragprog#{n}.com"}
     category 'Book'
     description 'An awesome programming book'
@@ -42,7 +42,7 @@ FactoryGirl.define do
   end
 
   factory :review do
-    sequence(:body) { |n| "Highly recommended#{n}"}
+    sequence(:body) { |n| "#{n}Highly recommended"}
   end
 
 

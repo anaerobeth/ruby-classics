@@ -1,19 +1,16 @@
 <% if @posting %>
+  <%= link_to "Home", postings_path %>
   <h1><%= "Reviews for #{@posting.title}" %></h1>
-  <table>
-    <tr>
-      <th>User name</th>
-      <th>Review</th>
-    </tr>
+
     <% @reviews.each do |review| %>
-      <tr>
-        <%= content_tag :td, review.user.full_name %>
-        <%= content_tag :td, review.body %>
-      </tr>
+    <ul class="no-bullet">
+      <li><%= content_tag :td, review.body %></li>
+      <li><%= content_tag :td, review.user.full_name %></li>
+    </ul>
     <% end %>
-  </table>
+
   <% else %>
   <p>Be the first to review this </p>
 <% end %>
 
-<%= link_to "Review this #{@posting.category}", new_posting_review_path %>
+<%= link_to "Review this", new_posting_review_path %>
