@@ -12,7 +12,7 @@ feature 'user reviews a posting', %Q{
   # I can see that I have reviewed the posting when I do so
 
 
-  scenario 'user provides the required information' do
+  scenario 'user provides text for Review field' do
     user = FactoryGirl.create(:user)
     posting = FactoryGirl.create(:posting)
 
@@ -25,8 +25,6 @@ feature 'user reviews a posting', %Q{
     click_button 'Sign In'
 
     visit postings_path
-
-
     click_on 'Reviews'
     click_on 'Review this'
 
@@ -43,9 +41,29 @@ feature 'user reviews a posting', %Q{
 
   end
 
-  # describe 'user does not provide the required information' do
-  #   scenario 'User provides no information' do
+  scenario 'user did not provide text for Review field' do
+    user = FactoryGirl.create(:user)
+    posting = FactoryGirl.create(:posting)
 
+    total_count = Review.count
+    prev_user_reviews_count = Review.where('user_id = ?', user.id).count
+
+    visit new_user_session_path
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Sign In'
+
+    visit postings_path
+    click_on 'Reviews'
+    click_on 'Review this'
+
+    click_on 'Create Review'
+
+    expect(Review.count).to eql(total_count)
+    new_user_reviews_count = Review.where('user_id = ?', user.id).count
+    expect(new_user_reviews_count).to eql( prev_user_reviews_count)
+    expect(page).to have_content("can't be blank")
+  end
   #     user = FactoryGirl.create(:user)
   #     posting = FactoryGirl.create(:food_posting)
 
@@ -85,6 +103,7 @@ feature 'user reviews a posting', %Q{
 
   #   end
   # end
+
   # scenario 'User cancels making a review' do
   #   posting = FactoryGirl.create(:food_posting)
 
