@@ -1,4 +1,5 @@
 <% if @posting %>
+  <%= link_to "Home", postings_path %>
   <h1><%= "Reviews for #{@posting.title}" %></h1>
 
     <% @reviews.each do |review| %>

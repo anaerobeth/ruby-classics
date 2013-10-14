@@ -64,56 +64,27 @@ feature 'user reviews a posting', %Q{
     expect(new_user_reviews_count).to eql( prev_user_reviews_count)
     expect(page).to have_content("can't be blank")
   end
-  #     user = FactoryGirl.create(:user)
-  #     posting = FactoryGirl.create(:food_posting)
 
-  #     prev_count = Review.count
-  #     visit new_user_session_path
-  #     fill_in 'Email', with: user.email
-  #     fill_in 'Password', with: user.password
-  #     click_button 'Sign In'
+  scenario 'user cancels making a review' do
+    user = FactoryGirl.create(:user)
+    posting = FactoryGirl.create(:posting)
 
-  #     visit new_food_posting_review_path(posting)
+    total_count = Review.count
+    prev_user_reviews_count = Review.where('user_id = ?', user.id).count
 
-  #     click_on 'Create Review'
+    visit new_user_session_path
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Sign In'
 
-  #     expect(Review.count).to eql(prev_count)
-  #     expect(page).to have_content("can't be blank")
+    visit postings_path
+    click_on 'Reviews'
+    click_on 'Review this'
 
-  #   end
-  #   scenario 'User provides body, but no is_good' do
+    click_on 'Cancel'
 
-  #     user = FactoryGirl.create(:user)
-  #     posting = FactoryGirl.create(:food_posting)
-
-  #     prev_count = Review.count
-  #     visit new_user_session_path
-  #     fill_in 'Email', with: user.email
-  #     fill_in 'Password', with: user.password
-  #     click_button 'Sign In'
-
-  #     visit new_food_posting_review_path(posting)
-
-  #     fill_in 'Body', with: 'SOOOOO GOOOD'
-
-  #     click_on 'Create Review'
-
-  #     expect(Review.count).to eql(prev_count)
-  #     expect(page).to have_content("must be filled")
-
-  #   end
-  # end
-
-  # scenario 'User cancels making a review' do
-  #   posting = FactoryGirl.create(:food_posting)
-
-  #   visit_posting_reviews_path(posting)
-  #   click_on 'Add review'
-  #   click_on 'Cancel'
-
-  #   expect(page).to have_content(posting.name)
-  # end
-
-
+    expect(Review.count).to eql(total_count)
+    expect(page).to have_content(posting.title)
+  end
 
 end

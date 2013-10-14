@@ -1,6 +1,7 @@
 <% @review.errors.full_messages.each do | error | %>
   <%= content_tag :p, error %>
 <% end %>
+
 <h3>Review: <%= link_to @posting.title, @posting.url %></h3>
 <%= simple_form_for([@posting, @review]) do |f| %>
 
