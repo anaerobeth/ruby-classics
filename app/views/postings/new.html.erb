@@ -1,4 +1,6 @@
-<h3>Do you know an awesome online resource for Rubyists? Share it with the comunity and earn some good karma:
+
+<h3>Do you know an awesome online resource for Rubyists?</h3>
+<p>Share it with the comunity and earn some good karma:</p>
 <%= simple_form_for(@posting) do |f| %>
   <%= f.input :title %>
   <%= f.input :url, label: 'Website'%>
@@ -6,5 +8,4 @@
   <%= f.input :category %>
   <%= f.submit 'Create a post' %>
 <% end %>
-<%= link_to 'Cancel', render: :new %>
-<%= link_to 'Home', root_path %>
+<%= link_to 'Cancel', postings_path %>

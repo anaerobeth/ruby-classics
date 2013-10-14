@@ -25,7 +25,7 @@ feature 'user reviews a posting', %Q{
     click_button 'Sign In'
 
     visit postings_path
-    save_and_open_page
+
     click_on 'Reviews'
 
     fill_in "What I think about this #{posting.category}", with: 'Very useful!'

@@ -1,20 +1,17 @@
 <h2>The best online resources for Ruby developers</h2>
 <div>
-  <ul>
+
   <% @postings.each do |posting| %>
+  <ul class="no-bullet">
     <li><%= posting.category %></li>
     <li><%= link_to posting.title, posting.url %></li>
     <li><%= posting.description %></li>
-    <li><%= User.where(id: posting.user_id).first.full_name %></li>
-    <li><%= link_to 'Review this', posting_reviews_path(posting) %></li>
-
-    <% if current_user %>
-      | <%= link_to "up", posting_vote_path(posting, value: 1), method: "post" %>
-      | <%= link_to "down", posting_vote_path(posting, value: -1), method: "post" %>
-    <% end %>
-
+  </ul>
+  <ul class="inline-list">
+    <li>Added by: <%= User.where(id: posting.user_id).first.full_name %></li>
+    <li><%= link_to 'Reviews', posting_reviews_path(posting) %></li>
+  </ul>
   <%- end -%>
-  <ul>
 </div>
 <%= paginate @postings %>
-<%= link_to 'Share a new Ruby Classic', new_posting_path %>
+<%= link_to 'Share an online resource', new_posting_path %>

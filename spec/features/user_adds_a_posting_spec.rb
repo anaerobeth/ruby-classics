@@ -68,7 +68,7 @@ feature 'user creates a posting', %Q{
     expect(Posting.count).to eql(prev_posting_count)
     expect(page).to_not have_content('Your post has been added to Ruby Classics')
 
-    expect(page).to have_content("Do you know an awesome online resource")
+    expect(page).to have_content("The best online resources for Ruby developers")
   end
 
 
