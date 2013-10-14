@@ -4,7 +4,7 @@
   <% @postings.each do |posting| %>
   <ul class="no-bullet">
     <li><%= posting.category %></li>
-    <li><%= link_to posting.title, posting.url %></li>
+    <strong><li><%= link_to posting.title, posting.url %></li></strong>
     <li><%= posting.description %></li>
   </ul>
   <ul class="inline-list">

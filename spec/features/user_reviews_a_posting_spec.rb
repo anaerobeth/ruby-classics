@@ -17,7 +17,7 @@ feature 'user reviews a posting', %Q{
     posting = FactoryGirl.create(:posting)
 
     total_count = Review.count
-    user_review_count = user.reviews.count
+    prev_user_reviews_count = Review.where('user_id = ?', user.id).count
 
     visit new_user_session_path
     fill_in 'Email', with: user.email
@@ -26,15 +26,18 @@ feature 'user reviews a posting', %Q{
 
     visit postings_path
 
-    click_on 'Reviews'
 
-    fill_in "What I think about this #{posting.category}", with: 'Very useful!'
+    click_on 'Reviews'
+    click_on 'Review this'
+
+    fill_in :review_body, with: 'Very useful!'
 
     click_on 'Create Review'
 
     expect(Review.count).to eql(total_count + 1)
-    expect( user.reviews.count ).to eql( user_review_count + 1 )
-    expect(page).to have_content('You have posted your review')
+    new_user_reviews_count = Review.where('user_id = ?', user.id).count
+    expect(new_user_reviews_count).to eql( prev_user_reviews_count + 1 )
+    expect(page).to have_content('Thank you for your review.')
 
     expect(page).to have_content(posting.title)
 

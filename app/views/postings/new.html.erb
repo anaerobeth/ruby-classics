@@ -5,7 +5,8 @@
   <%= f.input :title %>
   <%= f.input :url, label: 'Website'%>
   <%= f.input :description %>
-  <%= f.input :category %>
-  <%= f.submit 'Create a post' %>
+  <%= f.input :category, collection: ['Book', 'Video', 'Article'], selected: 'Book', input_html: {style: 'width: 180px'}%>
+    <%= f.button :submit, 'Add this resource' %>
+
 <% end %>
 <%= link_to 'Cancel', postings_path %>
