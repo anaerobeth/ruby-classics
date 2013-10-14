@@ -1,5 +1,14 @@
 class Posting < ActiveRecord::Base
 
+  belongs_to :user,
+    inverse_of: :postings
+
+  has_many :reviews,
+    inverse_of: :posting
+
+  has_many :recommendations,
+    inverse_of: :posting
+
   validates_presence_of :title
   validates_presence_of :url
   validates_format_of :url,
@@ -9,14 +18,5 @@ class Posting < ActiveRecord::Base
   validates_inclusion_of :category,
     in: ['Book', 'Video', 'Article']
   validates_presence_of :description
-
-  belongs_to :user,
-    inverse_of: :postings
-
-  has_many :reviews,
-    inverse_of: :posting
-
-  has_many :posting_votes,
-    inverse_of: :posting
 
 end

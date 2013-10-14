@@ -4,13 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates_presence_of :user_name
-  validates_presence_of :first_name
-  validates_presence_of :last_name
-
-  validates_uniqueness_of :user_name, :case_sensitive => false, :message => "has already been taken"
-  validates_uniqueness_of :email, :case_sensitive => false, :message => "has already been taken"
-
   has_many :postings,
     inverse_of: :user
 
@@ -18,8 +11,15 @@ class User < ActiveRecord::Base
     through: :postings,
     inverse_of: :user
 
-  has_many :posting_votes,
+  has_many :recommendations,
     inverse_of: :user
+
+  validates_presence_of :user_name
+  validates_presence_of :first_name
+  validates_presence_of :last_name
+
+  validates_uniqueness_of :user_name, :case_sensitive => false, :message => "has already been taken"
+  validates_uniqueness_of :email, :case_sensitive => false, :message => "has already been taken"
 
   def full_name
     "#{first_name} #{last_name}"

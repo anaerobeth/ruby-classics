@@ -1,9 +1,0 @@
-<% if @review %>
-  <%= simple_form_for([:posting, :review]) do |f| %>
-    <%= f.input :body, "What I think about this " %>
-    <%= f.button :submit %>
-    <%- end -%>
-<%- end -%>
-
-
-<%= link_to 'Cancel', redirect_to: new_posting_review_path %>

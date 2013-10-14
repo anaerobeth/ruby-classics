@@ -1,7 +1,9 @@
 Irdb3::Application.routes.draw do
 
+  get "recommendations/create"
   resources :postings do
     resources :reviews
+    resources :recommendations
   end
 
   devise_for :users

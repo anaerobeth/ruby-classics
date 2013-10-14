@@ -4,11 +4,14 @@
   <% @postings.each do |posting| %>
   <ul class="no-bullet">
     <li><%= posting.category %></li>
-    <strong><li><%= link_to posting.title, posting.url %></li></strong>
+    <strong><li><%= link_to posting.title, posting.url %></li>
+    <li><%= button_to 'Recommend', posting_recommendations_path(posting_id: posting.id) %></li></strong>
+
     <li><%= posting.description %></li>
   </ul>
   <ul class="inline-list">
     <li>Added by: <%= User.where(id: posting.user_id).first.full_name %></li>
+    <li>Recommended by <%= pluralize(posting.recommendations.length, "users") %></li>
     <li><%= link_to 'Reviews', posting_reviews_path(posting) %></li>
   </ul>
   <%- end -%>

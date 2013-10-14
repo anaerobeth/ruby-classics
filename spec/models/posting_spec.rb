@@ -9,5 +9,5 @@ describe Posting do
   it { should validate_presence_of(:description) }
   it { should belong_to(:user) }
   it { should have_many(:reviews) }
-  it { should have_many(:posting_votes) }
+  it { should have_many(:recommendations) }
 end

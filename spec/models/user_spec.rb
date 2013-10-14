@@ -5,7 +5,7 @@ describe User do
   it { should validate_presence_of(:first_name) }
   it { should validate_presence_of(:last_name) }
   it { should have_many(:postings) }
-  it { should have_many(:posting_votes) }
+  it { should have_many(:recommendations) }
 
 end
 
