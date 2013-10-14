@@ -1,1 +1,12 @@
- <%= render "reviews/form" %>
+<% @review.errors.full_messages.each do | error | %>
+  <%= content_tag :p, error %>
+<% end %>
+
+<h3>Review: <%= link_to @posting.title, @posting.url %></h3>
+<%= simple_form_for([@posting, @review]) do |f| %>
+
+  <%= f.input_field :body, placeholder: 'What I think about this resource' %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to 'Cancel', posting_reviews_path(@posting) %>
