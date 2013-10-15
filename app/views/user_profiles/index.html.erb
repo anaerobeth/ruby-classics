@@ -1,0 +1,27 @@
+<h2>The best minds in the Ruby community</h2>
+<div>
+
+  <% @user_profiles.each do |profile| %>
+  <ul class="no-bullet">
+    <% username = User.where(id: profile.user_id).first.user_name %>
+    <li><%= link_to username, user_profiles_path(profile) %></li></strong>
+    <li><%= profile.hometown %></li>
+    <li><%= link_to 'Twitter', profile.twitter %></li>
+    <li><%= link_to 'Github', profile.github %></li>
+    <li><%= link_to 'Blog', profile.blog %></li>
+    <li><%= link_to 'Website', profile.website %></li>
+    <% if profile.for_hire %>
+       <li>Available for hire</li>
+    <%- end -%>
+    <% if profile.for_pairing %>
+      <li>Available for pairing</li>
+    <%- end -%>
+    <li>Ruby links shared<%=  %> </li>
+    <li>Ruby links recommended<%=  %> </li>
+    <li>Ruby links reviewed<%=  %> </li>
+  </ul>
+
+  <%- end -%>
+</div>
+<%= paginate @user_profiles %>
+<%= link_to 'Share a Ruby resource', new_posting_path %>

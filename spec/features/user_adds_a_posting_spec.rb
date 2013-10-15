@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'user creates a posting', %Q{
   As an authenticated user
-  I want to create and add a resource item to a category
+  I want to create and add a resource item to the database
   So that I can share useful resources to the Ruby community
   } do
 

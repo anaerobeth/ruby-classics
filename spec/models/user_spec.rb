@@ -9,4 +9,3 @@ describe User do
   it { should have_one(:user_profile) }
 
 end
-
