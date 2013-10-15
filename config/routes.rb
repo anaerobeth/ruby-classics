@@ -1,5 +1,7 @@
 Irdb3::Application.routes.draw do
 
+  resources :user_profiles
+
   get "recommendations/create"
   resources :postings do
     resources :reviews
