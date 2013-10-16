@@ -1,0 +1,9 @@
+user_id,about_me,twitter,github,blog,website,hometown,for_hire,for_pairing
+junior Rails coder,@william,http://www.github.com,http://www.blogger.com,http://www.vimeo.com/,Boston,true,false
+senior Ruby engineer,@ethan,http://www.github.com,http://www.blogger.com,http://www.youtube.com,New York,true,true
+senior Ruby engineer,@noah,http://www.github.com,http://www.blogger.com,http://www.confreaks.com,San Diego,true,true
+senior Ruby developer,@eva,http://www.github.com,http://www.blogger.com,http://www.vimeo.com,Tampa,true,false
+expert Rails engineer,@randy,http://www.github.com,http://www.blogger.com,http://www.vimeo.com,Chicago,true,false
+expert Rails hacker,@mia,http://www.github.com,http://www.blogger.com,http://www.vimeo.com,Chicago,false,true
+senior Rails engineer,@emma,http://www.github.com,http://www.blogger.com,http://www.confreaks.com,San Diego,true,true
+junior Rails hacker,@dave,http://www.github.com,http://www.blogger.com,http://www.youtube.com,Austin,true,false

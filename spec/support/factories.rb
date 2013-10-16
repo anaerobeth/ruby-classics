@@ -21,7 +21,6 @@ FactoryGirl.define do
       end
     end
 
-
   end
 
   factory :posting do
@@ -37,13 +36,19 @@ FactoryGirl.define do
         FactoryGirl.create_list(:review, 5, posting: posting)
       end
     end
-
-
   end
 
   factory :review do
     sequence(:body) { |n| "#{n}Highly recommended"}
   end
 
-
+  factory :user_profile do
+    user
+    sequence(:about_me) { |n| "#{n}I am a web developer"}
+    sequence(:hometown) { |n| "#{n}Boston"}
+    sequence(:twitter) { |n| "@#{n}rubytweets"}
+    sequence(:github) { |n| "http://www.github.com/#{n}user"}
+    sequence(:blog) { |n| "http://www.blogger.com/#{n}myblog"}
+    sequence(:website) { |n| "http://www.website.com/#{n}mysite"}
+  end
 end

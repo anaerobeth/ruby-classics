@@ -1,0 +1,17 @@
+<h3>Share your expertise with fellow Rubyists</h3>
+<p>Post your online information and availability for pairing, jobs and other opportunities</p>
+<%= simple_form_for(@user_profile) do |f| %>
+  <%= f.input :hometown %>
+  <%= f.input :twitter %>
+  <%= f.input :github %>
+  <%= f.input :blog %>
+  <%= f.input :website %>
+  <%= f.input :about_me %>
+  <%= f.label 'Available for hire' %>
+  <%= f.collection_radio_buttons :for_pairing, [[true, 'Yes'] ,[false, 'No']], :first, :last %>
+  <%= f.label 'Available for pairing' %>
+  <%= f.collection_radio_buttons :for_hire, [[true, 'Yes'] ,[false, 'No']], :first, :last %>
+  <%= f.button :submit, 'Create my profile' %>
+
+<% end %>
+<%= link_to 'Cancel', postings_path %>

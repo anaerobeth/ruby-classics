@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
   has_many :recommendations,
     inverse_of: :user
 
+  has_one :user_profile,
+    inverse_of: :user
+
   validates_presence_of :user_name
   validates_presence_of :first_name
   validates_presence_of :last_name
