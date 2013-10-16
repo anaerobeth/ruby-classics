@@ -1,6 +1,9 @@
 <% if @posting %>
   <%= link_to "Home", postings_path %>
   <h1><%= "Reviews for #{@posting.title}" %></h1>
+  <% if !current_user %>
+    <p>You must sign in to review this title.</p>
+  <%- end -%>
 
     <% @reviews.each do |review| %>
     <ul class="no-bullet">

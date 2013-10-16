@@ -8,14 +8,18 @@ class PostingsController < ApplicationController
   end
 
   def create
-    @posting = Posting.new(posting_params)
-    @posting.user_id = current_user.id
+    if current_user
+      @posting = Posting.new(posting_params)
+      @posting.user_id = current_user.id
 
-    if @posting.save
-      flash[:notice] = 'Your post has been added to Ruby Classics.'
-      redirect_to postings_path(@posting)
+      if @posting.save
+        flash[:notice] = 'Your post has been added to Ruby Classics.'
+        redirect_to postings_path(@posting)
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to(postings_path, notice: "You must sign in to add titles")
     end
   end
 

@@ -1,6 +1,10 @@
 
 <h3>Do you know an awesome online resource for Rubyists?</h3>
-<p>Share it with the comunity and earn some good karma:</p>
+<% if current_user %>
+  <p>Share it with the comunity and earn some good karma:</p>
+<%- else -%>
+  <p>You must sign in to add a title.</p>
+<%- end -%>
 <%= simple_form_for(@posting) do |f| %>
   <%= f.input :title %>
   <%= f.input :url, label: 'Website'%>

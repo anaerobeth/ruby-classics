@@ -3,6 +3,10 @@
 <% end %>
 
 <h3>Review: <%= link_to @posting.title, @posting.url %></h3>
+<% if !current_user %>
+  <p>You must sign in to review this title.</p>
+<%- end -%>
+
 <%= simple_form_for([@posting, @review]) do |f| %>
 
   <%= f.input_field :body, placeholder: 'What I think about this resource' %>
