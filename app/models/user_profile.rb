@@ -8,8 +8,4 @@ class UserProfile < ActiveRecord::Base
   validates_format_of :website,
     with: URI::regexp(%w(http https))
 
-  def full_name
-    "#{first_name} #{last_name}"
-  end
-
 end

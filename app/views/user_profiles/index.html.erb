@@ -16,9 +16,9 @@
     <% if profile.for_pairing %>
       <li>Available for pairing</li>
     <%- end -%>
-    <li>Ruby links shared<%=  %> </li>
-    <li>Ruby links recommended<%=  %> </li>
-    <li>Ruby links reviewed<%=  %> </li>
+    <li>Ruby links shared <%= Posting.where(user_id: profile.user_id).count  %> </li>
+    <li>Ruby links recommended <%= Recommendation.where(user_id: profile.user_id).count  %> </li>
+    <li>Ruby links reviewed <%= Review.where(user_id: profile.user_id).count  %> </li>
   </ul>
 
   <%- end -%>

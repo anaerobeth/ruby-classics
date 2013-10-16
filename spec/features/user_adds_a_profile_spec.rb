@@ -31,7 +31,7 @@ feature 'user creates a profile', %Q{
     fill_in "Github", with: user_profile.github
     fill_in "Blog", with: user_profile.blog
     fill_in "Website", with: user_profile.website
-save_and_open_page
+
     click_button 'Create my profile'
     expect(UserProfile.count).to eql(prev_profile_count + 1)
     expect(page).to have_content('Wow, your profile page looks great.')
