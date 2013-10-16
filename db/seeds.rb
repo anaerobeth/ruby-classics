@@ -13,7 +13,7 @@ require 'CSV'
 posting_records = {}
 
 CSV.foreach('db/data/posting.csv', headers: true) do |row|
-  all_records[row[0]] = {
+  posting_records[row[0]] = {
     :title => row['title'],
     :description => row['description'],
     :url => row['url'],
@@ -37,7 +37,7 @@ posting_records.each do | key, values |
 end
 
 
-# Seed users
+#Seed users
 user_records = {}
 
 CSV.foreach('db/data/user.csv', headers: true) do |row|
@@ -45,6 +45,7 @@ CSV.foreach('db/data/user.csv', headers: true) do |row|
     :user_name => row['user_name'],
     :first_name => row['first_name'],
     :last_name => row['last_name'],
+    :email => row['email'],
     :password => row['password'],
     :password_confirmation => row['password_confirmation'],
   }
@@ -69,7 +70,7 @@ end
 profile_records = {}
 
 CSV.foreach('db/data/profile.csv', headers: true) do |row|
-  all_records[row[0]] = {
+  profile_records[row[0]] = {
     :user_id => row['user_id'].to_i,
     :about_me => row['about_me'],
     :twitter => row['twitter'],
@@ -83,12 +84,12 @@ CSV.foreach('db/data/profile.csv', headers: true) do |row|
 end
 
 profile_records.each do | key, values |
-  record = Profile.where({
-    url: key
+  record = UserProfile.where({
+    user_id: key
   }).first
 
   if record.nil?
-    record = Profile.new(values)
+    record = UserProfile.new(values)
   else
     record.attributes = values
   end
