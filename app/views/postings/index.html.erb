@@ -11,9 +11,9 @@
     <li><%= link_to 'Reviews', posting_reviews_path(posting) %></li>
     <li>Added by <%= User.where(id: posting.user_id).first.full_name %></li>
     <li>Recommended by <%= pluralize(posting.recommendations.length, "user") %></li>
-    <li><%= button_to 'Recommend', posting_recommendations_path(posting_id: posting.id) %></li>
-
+    <li><%= button_to 'Recommend', posting_recommendations_path(posting_id: posting.id), class:'small secondary', render: :back %></li>
   </ul>
+  <hr />
   <%- end -%>
 </div>
 <%= paginate @postings %>

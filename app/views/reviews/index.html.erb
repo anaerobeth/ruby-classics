@@ -1,6 +1,6 @@
+<%= link_to "Home", postings_path %>
 <% if @posting %>
-  <%= link_to "Home", postings_path %>
-  <h1><%= "Reviews for #{@posting.title}" %></h1>
+  <h3><%= "Reviews for #{@posting.title}" %></h3>
 
     <% @reviews.each do |review| %>
     <ul class="no-bullet">

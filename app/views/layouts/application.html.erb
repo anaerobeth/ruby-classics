@@ -24,10 +24,19 @@
   <body>
     <div class="row">
       <div class="large12">
-        <%= image_tag('logo.jpg') %>
+        <%= image_tag('Logo.png') %>
         <nav>
+          <div class="left">
+            <ul class="inline-list">
+              <%= link_to "Home", root_path %>
+              <%= link_to "Learn", postings_path %>
+              <%= link_to "Share", new_posting_path %>
+              <%= link_to "Connect", user_profiles_path %>
+            </ul>
+          </div>
           <div class="right">
             <% if user_signed_in? %>
+              <%= link_to 'Create a Profile', new_user_profile_path %>
               <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
             <% else %>
               <ul class="inline-list">
@@ -38,12 +47,10 @@
           </div>
         </nav>
       </div>
-      <div class="row">
-        <div class="small-6 large-centered columns">
           <%= content_tag :div, flash[:notice], class: 'notice' %>
           <%= content_tag :div, flash[:alert], class: 'alert' %>
-        </div>
           <%= yield %>
+    <div class="main-content">
       <div class="row">
         <div class="large12">
           <footer class="right">
@@ -51,6 +58,7 @@
           </footer>
         </div>
       </div>
+    </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

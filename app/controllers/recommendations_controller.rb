@@ -5,9 +5,10 @@ class RecommendationsController < ApplicationController
     recommendation.user_id = current_user.id
     recommendation.posting_id = posting.id
     if recommendation.save
-      redirect_to(postings_path, notice: "You recommended #{posting.title}")
+      redirect_to(:back, notice: "You recommended #{posting.title}")
     else
-      redirect_to(postings_path, notice: "You already recommended this")
+      redirect_to(:back, notice: "You already recommended #{posting.title}")
+
     end
   end
 
