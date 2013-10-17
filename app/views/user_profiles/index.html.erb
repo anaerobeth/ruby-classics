@@ -16,7 +16,7 @@
     <div class="large-3 columns">
       <ul class="no-bullet">
         <% username = User.where(id: profile.user_id).first.user_name %>
-        <li><%= link_to username, user_profiles_path(profile) %></li></strong>
+        <li><strong><%= username %></strong></li>
         <li><%= profile.hometown %></li>
         <li><%= link_to profile.twitter, "http://www.twitter.com/#{profile.twitter}" %></li>
         <li><%= link_to 'Github', profile.github %></li>
@@ -30,12 +30,12 @@
         <%- end -%>
       </ul>
     </div>
-    <div class="large-4 columns">
+    <div class="large-8 columns">
       <ul class="no-bullet">
         <li>About Me: <%= profile.about_me %></li>
-        <li>Ruby links shared <%= Posting.where(user_id: profile.user_id).count  %> </li>
-        <li>Ruby links recommended <%= Recommendation.where(user_id: profile.user_id).count  %> </li>
-        <li>Ruby links reviewed <%= Review.where(user_id: profile.user_id).count  %> </li>
+        <li><em>Ruby links shared </em><%= Posting.where(user_id: profile.user_id).count  %> </li>
+        <li><em>Ruby links recommended </em><%= Recommendation.where(user_id: profile.user_id).count  %> </li>
+        <li><em>Ruby links reviewed </em><%= Review.where(user_id: profile.user_id).count  %> </li>
       </ul>
     </div>
   <hr />
@@ -45,6 +45,7 @@
 </div>
 
 <%= paginate @user_profiles %>
+<br />
 <%= link_to 'Share a Ruby resource', new_posting_path %>
 <br />
 <hr />

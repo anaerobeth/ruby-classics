@@ -1,9 +1,9 @@
 user_id,about_me,twitter,github,blog,website,hometown,for_hire,for_pairing
-1,"junior Rails coder","@william","http://www.github.com","http://www.blogger.com","http://www.vimeo.com/","Boston","true","false"
-2,"senior Ruby engineer","@ethan","http://www.github.com","http://www.blogger.com","http://www.youtube.com","New York","true","true"
-3,"senior Ruby engineer","@noah","http://www.github.com","http://www.blogger.com","http://www.confreaks.com","San Diego","true","true"
-4,"senior Ruby developer","@eva","http://www.github.com","http://www.blogger.com","http://www.vimeo.com","Tampa","true","false"
-5,"expert Rails engineer","@randy","http://www.github.com","http://www.blogger.com","http://www.vimeo.com","Chicago","true","false"
-6,"expert Rails hacker","@mia","http://www.github.com","http://www.blogger.com","http://www.vimeo.com","Chicago","false","true"
-7,"senior Rails engineer","@emma","http://www.github.com","http://www.blogger.com","http://www.confreaks.com","San Diego","true","true"
-8,"junior Rails hacker","@dave","http://www.github.com","http://www.blogger.com","http://www.youtube.com","Austin","true","false"
+1,"junior Rails coder","@william","http://www.github.com","http://www.blogger.com","http://www.vimeo.com/","Boston",true,false
+2,"senior Ruby engineer","@ethan","http://www.github.com","http://www.blogger.com","http://www.youtube.com","New York",true,true
+3,"senior Ruby engineer","@noah","http://www.github.com","http://www.blogger.com","http://www.confreaks.com","San Diego",true,true
+4,"senior Ruby developer","@eva","http://www.github.com","http://www.blogger.com","http://www.vimeo.com","Tampa",true,false
+5,"expert Rails engineer","@randy","http://www.github.com","http://www.blogger.com","http://www.vimeo.com","Chicago",true,false
+6,"expert Rails hacker","@mia","http://www.github.com","http://www.blogger.com","http://www.vimeo.com","Chicago",false,true
+7,"senior Rails engineer","@emma","http://www.github.com","http://www.blogger.com","http://www.confreaks.com","San Diego",true,true
+8,"junior Rails hacker","@dave","http://www.github.com","http://www.blogger.com","http://www.youtube.com","Austin",true,false
