@@ -4,16 +4,17 @@ class UserProfilesController < ApplicationController
   end
 
   def index
-    @user_profiles = UserProfile.order("id").page(params[:page]).per(5)
+    @q = UserProfile.search(params[:q])
+    @user_profiles = @q.result.order("id").page(params[:page]).per(5)
   end
 
   def create
-    @profile = UserProfile.new(user_profile_params)
-    @profile.user_id = current_user.id
+    @user_profile = UserProfile.new(user_profile_params)
+    @user_profile.user_id = current_user.id
 
-    if @profile.save
+    if @user_profile.save
       flash[:notice] = 'Wow, your profile page looks great.'
-      redirect_to user_profiles_path(@profile)
+      redirect_to user_profiles_path(@user_profile)
     else
       render :new
     end

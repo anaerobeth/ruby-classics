@@ -1,6 +1,6 @@
-<%= link_to "Home", postings_path %>
+
 <% if @posting %>
-  <h1><%= "Reviews for #{@posting.title}" %></h1>
+  <h3><%= "Reviews for #{@posting.title}" %></h3>
   <% if !current_user %>
     <p>You must sign in to review this title.</p>
   <%- end -%>

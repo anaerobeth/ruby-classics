@@ -23,12 +23,12 @@ feature 'user creates a posting', %Q{
     prev_posting_count = Posting.count
     visit new_posting_path
 
-    fill_in "Title", with: posting.title
-    fill_in "Website", with: posting.url
-    fill_in "Description", with: posting.description
+    fill_in :posting_title, with: posting.title
+    fill_in :posting_url, with: posting.url
+    fill_in :posting_description, with: posting.description
     select 'Book'
 
-    click_button 'Add this resource'
+    click_button 'Add this title'
     expect(Posting.count).to eql(prev_posting_count + 1)
     expect(page).to have_content('Your post has been added to Ruby Classics.')
   end
@@ -46,7 +46,7 @@ feature 'user creates a posting', %Q{
     prev_posting_count = Posting.count
     visit new_posting_path
 
-    click_button 'Add this resource'
+    click_button 'Add this title'
     expect(Posting.count).to eql(prev_posting_count)
     expect(page).to_not have_content('Your post has been added to Ruby Classics.')
     expect(page).to have_content("can't be blank")

@@ -1,16 +1,16 @@
 
 <h3>Do you know an awesome online resource for Rubyists?</h3>
 <% if current_user %>
-  <p>Share it with the comunity and earn some good karma:</p>
+  <p>Share it with the comunity and earn some good karma</p>
 <%- else -%>
   <p>You must sign in to add a title.</p>
 <%- end -%>
 <%= simple_form_for(@posting) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :url, label: 'Website'%>
-  <%= f.input :description %>
-  <%= f.input :category, collection: ['Book', 'Video', 'Article'], selected: 'Book', input_html: {style: 'width: 180px'}%>
-    <%= f.button :submit, 'Add this resource' %>
+  <%= f.input :title, label: false, placeholder: 'Title' %>
+  <%= f.input :url, label: false, placeholder: 'Website' %>
+  <%= f.input :description, label: false, placeholder: 'Description' %>
+  <%= f.input :category, label: false, collection: ['Book', 'Video', 'Article'], selected: 'Book', input_html: {style: 'width: 150px'}%>
+    <%= f.button :submit, 'Add this title' %>
 
 <% end %>
 <%= link_to 'Cancel', postings_path %>

@@ -23,20 +23,22 @@
 
   <body>
     <div class="row">
-      <div class="large12">
+      <div class="large-12 columns">
         <%= image_tag('Logo.png') %>
         <nav>
-          <div class="left">
+          <div class="large-6 columns">
             <ul class="inline-list">
-              <%= link_to "Home", root_path %>
-              <%= link_to "Learn", postings_path %>
-              <%= link_to "Share", new_posting_path %>
-              <%= link_to "Connect", user_profiles_path %>
+              <%= link_to "Home  | ", root_path %>
+              <%= link_to "Learn  |", postings_path %>
+              <%= link_to "Share  |", new_posting_path %>
+              <%= link_to "Connect ", user_profiles_path %>
             </ul>
           </div>
-          <div class="right">
+          <div class="large-3 columns">
             <% if user_signed_in? %>
-              <%= link_to 'Create a Profile', new_user_profile_path %>
+              <% if UserProfile.where('id = ?', current_user.id).count == 0 %>
+                <%= link_to 'Create a Profile  |', new_user_profile_path %>
+              <%- end -%>
               <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
             <% else %>
               <ul class="inline-list">
@@ -51,9 +53,10 @@
           <%= content_tag :div, flash[:alert], class: 'alert' %>
           <%= yield %>
     <div class="main-content">
+      <hr/>
       <div class="row">
-        <div class="large12">
-          <footer class="right">
+        <div class="large-12 large-offset-6 columns">
+          <footer>
             Copyright 2013 * Creative Commons License With Attribution
           </footer>
         </div>

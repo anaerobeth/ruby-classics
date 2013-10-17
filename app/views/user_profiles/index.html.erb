@@ -1,6 +1,13 @@
 <h3>The best minds in the Ruby community</h3>
 <div>
-
+  <div>
+    <%= search_form_for @q do |f| %>
+      <div class="field">
+        <%= f.text_field :about_me_cont, placeholder: 'Search the community' %>
+      </div>
+      <div class="actions"><%= f.submit "Search" %></div>
+    <% end %>
+  </div>
   <% @user_profiles.each do |profile| %>
   <ul class="no-bullet">
     <% username = User.where(id: profile.user_id).first.user_name %>
@@ -9,7 +16,9 @@
     <li><%= link_to profile.twitter, "http://www.twitter.com/#{profile.twitter}" %></li>
     <li><%= link_to 'Github', profile.github %></li>
     <li><%= link_to 'Blog', profile.blog %></li>
+    <li><%= profile.about_me %></li>
     <li><%= link_to 'Website', profile.website %></li>
+
     <% if profile.for_hire %>
        <li>Available for hire</li>
     <%- end -%>

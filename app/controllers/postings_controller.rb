@@ -4,7 +4,8 @@ class PostingsController < ApplicationController
   end
 
   def index
-    @postings = Posting.order("id").page(params[:page]).per(5)
+    @q = Posting.search(params[:q])
+    @postings = @q.result.order("id").page(params[:page]).per(5)
   end
 
   def create

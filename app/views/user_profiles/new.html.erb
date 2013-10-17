@@ -1,16 +1,20 @@
 <h3>Share your expertise with fellow Rubyists</h3>
 <p>Post your online information and availability for pairing, jobs and other opportunities</p>
-<%= simple_form_for(@user_profile) do |f| %>
+
+<%= simple_form_for(@user_profile) do |f|  %>
   <%= f.input :hometown %>
-  <%= f.input :twitter %>
-  <%= f.input :github %>
-  <%= f.input :blog %>
-  <%= f.input :website %>
-  <%= f.input :about_me %>
+  <%= f.input :twitter, placeholder: '@username' %>
+  <%= f.input :github, placeholder: 'http://www.github.com/username'  %>
+  <%= f.input :blog, placeholder: 'http://www.mywebsite.com' %>
+  <%= f.input :website, placeholder: 'http://www.mywebsite.com' %>
+  <%= f.input :about_me, placeholder: 'What are you working on? What are you passionate about?' %>
+
   <%= f.label 'Available for hire' %>
   <%= f.collection_radio_buttons :for_pairing, [[true, 'Yes'] ,[false, 'No']], :first, :last %>
-  <%= f.label 'Available for pairing' %>
-  <%= f.collection_radio_buttons :for_hire, [[true, 'Yes'] ,[false, 'No']], :first, :last %>
+
+  <%= f.label 'Available for pair programming' %>
+  <span class="custom radio"></span><%= f.collection_radio_buttons :for_hire, [[true, 'Yes'] ,[false, 'No']], :first, :last, input_html: {style: 'display:none' }%>
+
   <%= f.button :submit, 'Create my profile' %>
 
 <% end %>

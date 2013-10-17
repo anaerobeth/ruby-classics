@@ -1,5 +1,14 @@
 <h2>The best online resources for Ruby developers</h2>
 <div>
+  <div>
+    <%= search_form_for @q do |f| %>
+      <div class="field">
+        <%= f.text_field :title_cont, placeholder: 'Search our collection' %>
+      </div>
+      <div class="actions"><%= f.submit "Search" %></div>
+    <% end %>
+  </div>
+
 
   <% @postings.each do |posting| %>
   <ul class="no-bullet">
@@ -17,4 +26,5 @@
   <%- end -%>
 </div>
 <%= paginate @postings %>
+<br />
 <%= link_to 'Share an online resource', new_posting_path %>
