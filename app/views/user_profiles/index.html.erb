@@ -32,7 +32,7 @@
     </div>
     <div class="large-8 columns">
       <ul class="no-bullet">
-        <li>About Me: <%= profile.about_me %></li>
+        <li><em>About Me: </em><%= profile.about_me %></li>
         <li><em>Ruby links shared </em><%= Posting.where(user_id: profile.user_id).count  %> </li>
         <li><em>Ruby links recommended </em><%= Recommendation.where(user_id: profile.user_id).count  %> </li>
         <li><em>Ruby links reviewed </em><%= Review.where(user_id: profile.user_id).count  %> </li>
@@ -48,4 +48,3 @@
 <br />
 <%= link_to 'Share a Ruby resource', new_posting_path %>
 <br />
-<hr />

@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-require 'CSV'
+require 'csv'
 
 # Seed postings
 posting_records = {}
