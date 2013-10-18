@@ -7,7 +7,7 @@
     <% @reviews.each do |review| %>
     <ul class="no-bullet">
       <li><%= content_tag :td, review.body %></li>
-      <li><%= content_tag :td, review.user.full_name %></li>
+      <li><em>-<%= content_tag :td, review.user.full_name %></em></li>
     </ul>
     <% end %>
 
