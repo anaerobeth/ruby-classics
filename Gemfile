@@ -68,3 +68,5 @@ gem 'devise'
 # Use kaminari
 gem 'kaminari'
 gem 'ransack'
+
+gem 'rails_12factor', group: :production
