@@ -2,10 +2,8 @@
 <h3>Do you know an awesome online resource for Rubyists?</h3>
 <% if current_user %>
   <p>Share it with the comunity and earn some good karma</p>
-<%- else -%>
-  <p>You must sign in to add a title.</p>
-<%- end -%>
-<%= simple_form_for(@posting) do |f| %>
+
+  <%= simple_form_for(@posting) do |f| %>
   <%= f.input :title, label: false, placeholder: 'Title' %>
   <%= f.input :url, label: false, placeholder: 'Website' %>
   <%= f.input :description, label: false, placeholder: 'Description' %>
@@ -13,4 +11,8 @@
     <%= f.button :submit, 'Add this title' %>
 
 <% end %>
+<%- else -%>
+  <p>You must <%= link_to 'sign in', new_user_session_path %> to add a title.</p>
+<%- end -%>
+
 <%= link_to 'Cancel', postings_path %>

@@ -1,18 +1,26 @@
 
-<div class="row">
-  <div class="large-3 columns">
-   <h3 class="home-boxes">Accelerate your learning</h3>
-  </div>
+<div class="row top-buffer">
+
 
   <div class="large-3 columns">
-    <h3 class="home-boxes">Learn from trusted members of the community</h3>
+   <h3 class="home-boxes"><em>Accelerate your learning</em></h3>
   </div>
 
-  <div class="large-3 columns">
-    <h3 class="home-boxes">Share resources that helped you the most</h3>
-  </div>
+  <%= link_to postings_path do %>
+    <div class="large-3 columns">
+      <h3 class="home-boxes"><span class="sparkle">Learn</span> from trusted members of the community</h3>
+    </div>
+  <% end %>
 
-  <div class="large-3 columns">
-    <h3 class="home-boxes">Connect with other Rubyists near you</h3>
-  </div>
+  <%= link_to new_posting_path do %>
+    <div class="large-3 columns">
+      <h3 class="home-boxes"><span class="sparkle">Share</span> resources that helped you the most</h3>
+    </div>
+  <% end %>
+
+  <%= link_to user_profiles_path do %>
+    <div class="large-3 columns">
+      <h3 class="home-boxes"><span class="sparkle">Connect</span> with other Rubyists near you</h3>
+    </div>
+  <% end %>
 </div>

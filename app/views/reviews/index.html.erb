@@ -1,18 +1,22 @@
 
-<% if @posting %>
+<% if @reviews %>
   <h3><%= "Reviews for #{@posting.title}" %></h3>
+
   <% if !current_user %>
-    <p>You must sign in to review this title.</p>
-  <%- end -%>
+    <p>You must <%= link_to 'sign in', new_user_session_path %> to review this title.</p>
+  <%- else -%>
     <% @reviews.each do |review| %>
     <ul class="no-bullet">
       <li><%= content_tag :td, review.body %></li>
       <li><em>-<%= content_tag :td, review.user.full_name %></em></li>
     </ul>
     <% end %>
+  <% end %>
 
+  <%- if @reviews.length == 0 %>
+    <%= link_to "Be the first to review this", new_posting_review_path %>
   <% else %>
-  <p>Be the first to review this </p>
+    <%= link_to "Review this", new_posting_review_path %>
+  <% end %>
 <% end %>
 
-<%= link_to "Review this", new_posting_review_path %>
