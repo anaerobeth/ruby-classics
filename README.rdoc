@@ -2,25 +2,25 @@
 
 Ruby Classics is a community-driven online resource that lists the best resources in learning and developing in the Ruby language. Dubbed as "IMDB for Ruby Developers", new and seasoned Rubyists can search for, review and recommend must-read Ruby books, videos, and articles. This app also allows users to track their progress and celebrate small victories as they learn Ruby.
 
-### Ruby and Rails version
+Ruby and Rails version
 
 * Rails 4.0.0
 * Ruby 2.0.0
 
 
-### Database
+Database
 * PostgreSQL 9.2.4
 
-### Test suite
+Test suite
 * Rspec 2.14
 
-### How to use
+How to use
 
 1. run 'git clone https://github.com/anaerobeth/ruby-classics.git'
 2. run 'bundle'
 3. copy config/database.example.yml to config/database.yml
 4. run 'rake db:setup'
 
-### Demo website
+Demo website
 http://intense-cliffs-7199.herokuapp.com/
 
