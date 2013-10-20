@@ -26,7 +26,7 @@ feature 'user reviews a posting', %Q{
 
     visit postings_path
     click_on 'Reviews'
-    click_on 'Review this'
+    click_on 'Be the first to review this'
 
     fill_in :review_body, with: 'Very useful!'
 
@@ -55,7 +55,7 @@ feature 'user reviews a posting', %Q{
 
     visit postings_path
     click_on 'Reviews'
-    click_on 'Review this'
+    click_on 'Be the first to review this'
 
     click_on 'Create Review'
 
@@ -79,7 +79,7 @@ feature 'user reviews a posting', %Q{
 
     visit postings_path
     click_on 'Reviews'
-    click_on 'Review this'
+    click_on 'Be the first to review this'
 
     click_on 'Cancel'
 

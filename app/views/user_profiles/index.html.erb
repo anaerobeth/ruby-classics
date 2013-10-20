@@ -1,6 +1,5 @@
 <h3>The best minds in the Ruby community</h3>
 <div>
-
   <div>
     <%= search_form_for @q do |f| %>
       <div class="field">
@@ -9,7 +8,6 @@
       <div class="actions"><%= f.submit "Search" %></div>
     <% end %>
   </div>
-
 
   <% @user_profiles.each do |profile| %>
   <div class="row">
@@ -30,6 +28,7 @@
         <%- end -%>
       </ul>
     </div>
+
     <div class="large-8 columns">
       <ul class="no-bullet">
         <li><em>About Me: </em><%= profile.about_me %></li>
@@ -38,6 +37,7 @@
         <li><em>Ruby links reviewed </em><%= Review.where(user_id: profile.user_id).count  %> </li>
       </ul>
     </div>
+
   <hr />
   </div>
   <%- end -%>

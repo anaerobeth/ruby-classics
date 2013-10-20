@@ -7,7 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-require 'csv'
+require 'CSV'
+
 
 # Seed postings
 posting_records = {}
@@ -96,7 +97,6 @@ profile_records.each do | key, values |
 
   record.save!
 end
-
 
 
 # Seed recommendations

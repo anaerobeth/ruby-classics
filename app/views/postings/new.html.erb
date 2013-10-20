@@ -4,13 +4,12 @@
   <p>Share it with the comunity and earn some good karma</p>
 
   <%= simple_form_for(@posting) do |f| %>
-  <%= f.input :title, label: false, placeholder: 'Title' %>
-  <%= f.input :url, label: false, placeholder: 'Website' %>
-  <%= f.input :description, label: false, placeholder: 'Description' %>
-  <%= f.input :category, label: false, collection: ['Book', 'Video', 'Article'], selected: 'Book', input_html: {style: 'width: 150px'}%>
-    <%= f.button :submit, 'Add this title' %>
-
-<% end %>
+    <%= f.input :title, label: false, placeholder: 'Title' %>
+    <%= f.input :url, label: false, placeholder: 'Website' %>
+    <%= f.input :description, label: false, placeholder: 'Description' %>
+    <%= f.input :category, label: false, collection: ['Book', 'Video', 'Article'], selected: 'Book', input_html: {style: 'width: 150px'}%>
+      <%= f.button :submit, 'Add this title' %>
+  <% end %>
 <%- else -%>
   <p>You must <%= link_to 'sign in', new_user_session_path %> to add a title.</p>
 <%- end -%>
