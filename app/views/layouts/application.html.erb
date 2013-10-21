@@ -14,7 +14,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Ruby Classics" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -22,51 +22,10 @@
   </head>
 
   <body>
-    <div class="row">
-      <div class="large-12 columns">
-        <%= link_to image_tag('Logo.png'), root_path  %>
-      </div>
-    </div>
-    <div class="row">
-      <nav>
-        <div class="large-6 columns">
-            <ul>
-              <%= link_to "Learn  |", postings_path %>
-              <%= link_to "Share  |", new_posting_path %>
-              <%= link_to "Connect ", user_profiles_path %>
-            </ul>
-        </div>
-        <div class="large-3 columns">
-          <% if user_signed_in? %>
-            <% if UserProfile.where('id = ?', current_user.id).count == 0 %>
-              <%= link_to 'Create a Profile  |', new_user_profile_path %>
-            <%- end -%>
-            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-          <% else %>
-            <ul class="inline-list right">
-              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-              <li><%= link_to 'Sign In', new_user_session_path %></li>
-            </ul>
-          <% end %>
-        </div>
-      </nav>
-    </div>
-    <div class="row main-content">
-      <div class="large-12 columns">
-          <em><%= content_tag :div, flash[:notice], class: 'notice' %></em>
-          <%= content_tag :div, flash[:alert], class: 'alert' %>
-          <%= yield %>
-      </div>
-    </div>
 
-      <hr/>
-      <div class="row">
-        <div class="large-12 large-offset-6 columns">
-          <div class="footer">
-            Copyright 2013 * Creative Commons License With Attribution
-          </div>
-        </div>
-      </div>
+    <%= yield %>
+
+    
     <%= javascript_include_tag "application" %>
   </body>
 </html>
