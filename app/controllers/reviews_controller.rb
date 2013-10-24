@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    @posting = Posting.find(params[:posting_id])
+    @posting = Posting.find( params[:posting_id] )
     @review.posting_id = @posting.id
 
     if @review.save
