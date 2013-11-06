@@ -1,5 +1,7 @@
 Irdb3::Application.routes.draw do
 
+  resources :bookshelves
+
   resources :user_profiles
 
   resources :postings do
